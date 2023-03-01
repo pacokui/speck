@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Technologies</title>
+    <style>
+      body {
+        margin: 30px;
+      }
+      h1 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 15;
+        padding: 0;
+      }
+
+      #myGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        grid-gap: 15px;
+        margin: 0 auto;
+        max-width: 600px;
+        margin-top: 20px;
+      }
+      .grid-item {
+        background-color: rgb(232, 230, 230);
+        padding: 5px;
+        text-align: center;
+        height: 30px;
+        width: max-content;
+        border-radius: 5px;
+        box-shadow: 5px 5px 5px gray;
+        line-height: normal;
+        font-weight: bold;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 200px;
+      }
+      #myInput {
+        margin-bottom: 10px;
+        border-radius: 10px;
+        border-color: red;
+        padding: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        align-items: center;
+      }
+      .add-button {
+        background-color: rgb(214, 190, 190);
+        padding: 5px;
+        border-color: rgb(197, 117, 117);
+        border-radius: 5px;
+        text-align: center;
+        height: auto;
+        line-height: auto;
+        cursor: pointer;
+        color: rgb(110, 58, 43);
+        margin-right: 10px;
+        width: 4%;
+
+      }
+      #removeAllItems {
+        background-color: transparent;
+        border: none;
+        color: rgb(197, 53, 53);
+        font-size: 12px;
+        float: right;
+        text-decoration: underline;
+      }
+      .remove-button {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        color: wheat;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        cursor: pointer;
+        text-underline-offset: 1;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1>My technologies</h1>
+    <input type="text" id="myInput" placeholder="Enter new technology..." />
+    <button class="add-button" onclick="addItem()">Add</button>
+    <button id="removeAllItems" class="remove-button" onclick="removeAllItems()">Remove all items</button>
+    <div id="myGrid"></div>
+
+    <script>
+      function addItem() {
+        var input = document.getElementById("myInput");
+        var value = input.value;
+        var grid = document.getElementById("myGrid");
+        var item = document.createElement("div");
+        item.className = "grid-item";
+        item.textContent = value;
+        grid.appendChild(item);
+        input.value = "";
+      }
+
+      function removeAllItems() {
+        var grid = document.getElementById("myGrid");
+        grid.innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
